@@ -46,7 +46,11 @@ function displayForecast() {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
-
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "afabtbc14f3d0fa8co4466c58c1ff504";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon={lon}&lat=${coordinates.lat}&key=${apiKey}`;
+}
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
@@ -70,7 +74,7 @@ function displayTemperature(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
-
+getForecast(response.data.coord);
 function search(city) {
   let apiKey = "cabdbda40038ba7d1165b953b1c7bd6c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
